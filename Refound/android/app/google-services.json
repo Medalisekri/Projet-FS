@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "493939253680",
+    "project_id": "refound-5eca5",
+    "storage_bucket": "refound-5eca5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:493939253680:android:ff691c0d7bd1855e1af675",
+        "android_client_info": {
+          "package_name": "com.example.refound"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVPXbNWyqVRkAGc17EezvMNOWCS5BZG7E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
