@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReFound - Lost & Found App</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --text-main: #1f2937;
+            --text-light: #4b5563;
+            --bg-light: #f3f4f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: #ffffff;
+        }
+
+        /* Header */
+        header {
+            padding: 1.5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            text-align: center;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                grid-template-columns: 1.2fr 0.8fr;
+                text-align: left;
+                padding: 6rem 2rem;
+            }
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .hero-title span {
+            color: var(--primary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            max-width: 540px;
+        }
+
+        /* Custom CTA Button */
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-download:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-subtext {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        /* Mockup Placeholder */
+        .mockup-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .app-mockup {
+            width: 280px;
+            height: 560px;
+            background: #111827;
+            border: 12px solid #374151;
+            border-radius: 36px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #9ca3af;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--bg-light);
+            padding: 5rem 2rem;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .card h3 {
+            margin: 1rem 0 0.5rem 0;
+            font-size: 1.25rem;
+        }
+
+        .card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Guide Section */
+        .guide {
+            padding: 5rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .step-list {
+            margin-top: 2rem;
+            list-style: none;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background: var(--bg-light);
+            color: var(--primary);
+            font-weight: 700;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--bg-light);
+        }
+        /* Container to hold both the button and the QR code */
+.download-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+@media (min-width: 500px) {
+    .download-area {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 768px) {
+    .download-area {
+        justify-content: flex-start; /* Aligns left on desktop layout */
+    }
+}
+
+/* QR Code styling */
+.qr-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: #ffffff;
+    padding: 0.75rem;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.qr-box img {
+    width: 120px;
+    height: 120px;
+}
+
+.qr-box span {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            🔍 ReFound
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div>
+                <h1 class="hero-title">Lose something?<br><span>Let's get it back.</span></h1>
+                <p class="hero-subtitle">The fastest community-driven way to report lost items and pin down found objects in your neighborhood. Powered by real-time updates.</p>
+                
+               <div class="download-area">
+    <div>
+        <a href="https://github.com/Medalisekri/Projet-FS/releases/download/v1.0.1/ReFound.apk" class="btn-download">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+            Download for Android
+        </a>
+        <span class="btn-subtext">Direct secure APK download • Free v1.0.0</span>
+    </div>
+
+    <div class="qr-box">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://github.com/Medalisekri/Projet-FS/releases/download/v1.0.1/ReFound.apk" alt="Scan to download APK">
+        <span>Scan to download</span>
+    </div>
+</div>
+            </div>
+            <div class="mockup-container">
+                <!-- Tip: Replace this box with an actual screenshot or img element later! -->
+                <div class="app-mockup">
+                    <p>[ Place App Screenshot Here ]</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="section-inner">
+                <h2 class="section-title">How FoundIt Works</h2>
+                <div class="grid-3">
+                    <div class="card">
+                        <div style="font-size: 2rem;">📸</div>
+                        <h3>Snap & Report</h3>
+                        <p>Found a misplaced set of keys or a wallet? Upload a photo, drop a rough location marker, and list it safely in seconds.</p>
+                    </div>
+                    <div class="card">
+                        <div style="font-size: 2rem;">🔔</div>
+                        <h3>Instant Match Alerts</h3>
+                        <p>Our smart categorization notifies local users immediately when an item matching their description is logged nearby.</p>
+                    </div>
+                    <div class="card">
+                        <div style="font-size: 2rem;">💬</div>
+                        <h3>Secure Claims</h3>
+                        <p>Chat directly inside the app with verified finders without exposing your phone number or personal email address.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Installation Guide -->
+        <section class="guide">
+            <h2 style="font-size: 1.75rem; font-weight: 700; text-align: center;">How to Install the App</h2>
+            <p style="color: var(--text-light); text-align: center; margin-top: 0.5rem;">Since we're testing externally, follow these quick steps to launch the app on your Android device:</p>
+            
+            <ul class="step-list">
+                <li class="step-item">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>Download the APK:</strong> Tap the blue download link at the top of this page to save the installation file safely to your device.
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>Open the File:</strong> Pull down your notification shade or head to your device's <em>Downloads</em> folder and tap the <code>foundit.apk</code> file.
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>Allow Installation:</strong> If prompted by Android, toggling on <em>"Allow from this source"</em> or <em>"Install anyway"</em> will securely unpack and complete the installation process.
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ReFound App. Built securely with Flutter & Firebase.</p>
+    </footer>
+
+</body>
+</html>

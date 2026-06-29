@@ -2,8 +2,10 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 class ImgbbService {
-  static const _apiKey = '9f2374aeb028270aab9a5df60e039f19';
+  static String get _apiKey => dotenv.env['IMGBB_API_KEY'] ?? '';
   // ── Mobile upload ─────────────────────────────────────
   static Future<String?> uploadImage(File imageFile) async {
     final bytes = await imageFile.readAsBytes();
